@@ -133,6 +133,18 @@
           <a href="">知识产权侵权投诉</a>
           本网站所列数据，除特殊说明，所有数据均出自我司实验室测试
         </p>
+        <!-- 五个防伪标识 -->
+        <div class="signboard">
+          <a href="javascript:;" class="truste"></a>
+          <a href="javascript:;" class="credit"></a>
+          <a href="javascript:;" class="credible"></a>
+          <a href="javascript:;" class="manage"></a>
+          <a href="javascript:;" class="safe"></a>
+        </div>
+        <!-- 五个防伪标识 -->
+      </div>
+      <div class="wish">
+        让全球每个人都能享受科技带来的美好生活
       </div>
     </div>
     <!-- 备案信息 -->
@@ -248,11 +260,10 @@ export default {
   display: none;
   position: absolute;
   top: 26px;
-  left: -51px;
+  left: -43px;
   width: 115px;
   height: 115px;
-  background: url(../../public/imgs/erweima.webp) no-repeat;
-  background-size: 110px 110px;
+  background: url(../../public/imgs/xiaomi.webp) no-repeat 11px -217px;
 }
 .wx:hover > .erweima {
   display: block;
@@ -272,7 +283,7 @@ export default {
   left: 0;
   width: 60px;
   height: 60px;
-  background: #ff6700 url(../../public/imgs/mihome.webp) no-repeat -54px 3px;
+  background: #ff6700 url(../../public/imgs/xiaomi.webp) no-repeat -51px -297px;
 }
 .icp > p {
   margin-left: 71px;
@@ -286,5 +297,58 @@ export default {
 }
 .icp > p > a:hover {
   color: #ff6700;
+}
+/* 五个安全标识**************************/
+.signboard{
+  width: 700px;
+  height: 57px;
+  margin-left: 65px;
+}
+.signboard>a{
+  display: inline-block;
+  vertical-align: middle;
+}
+.truste{
+  width: 170px;
+  height: 55px;
+  margin-left: -42px;
+  background: url(../../public/imgs/xiaomi.webp) no-repeat 0px 0px;
+  transform: scale(.5);
+}
+.credit{
+  width: 90px;
+  height: 31px;
+  margin-left: -39px;
+  background: url(../../public/imgs/xiaomi.webp) no-repeat 0px -54px;
+}
+.credible{
+  width: 134px;
+  height: 50px;
+  margin-left: -16px;
+  background: url(../../public/imgs/xiaomi.webp) no-repeat 0px -86px;
+  transform: scale(.7);
+}
+.manage{
+  width: 93px;
+  height: 30px;
+  margin-left: -16px;
+  background: url(../../public/imgs/xiaomi.webp) no-repeat 0px -136px;
+}
+.safe{
+  width: 131px;
+  height: 49px;
+  margin-left: -22px;
+  background: url(../../public/imgs/xiaomi.webp) no-repeat 0px -167px;
+  transform: scale(.7);
+}
+.wish{
+  width: 100%;
+  height: 20px;
+  margin-top: 40px;
+  letter-spacing: 3px;
+  font-size: 17px;
+  color: #cbcbcb;
+  text-align: center;
+  user-select:none;
 }
 </style>

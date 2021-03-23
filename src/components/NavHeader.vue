@@ -366,6 +366,7 @@ export default {
   border-top: 1px solid #e0e0e0;
   box-shadow: 0 3px 12px #d6d6d6;
   transition: all 0.5s;
+  z-index: 1;
 }
 .unfoldImg-list {
   display: flex;
