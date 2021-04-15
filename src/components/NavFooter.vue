@@ -161,6 +161,7 @@ export default {
 /* 服务部分 *************************************/
 .service {
   display: flex;
+  margin-top: 10px;
 }
 .service > li {
   position: relative;
@@ -171,8 +172,8 @@ export default {
 }
 .service > li::before {
   position: absolute;
-  top: 25px;
-  left: 0;
+  top: 30px;
+  left: -5px;
   width: 1px;
   height: 20px;
   background-color: #e0e0e0;
@@ -252,6 +253,7 @@ export default {
 }
 .tell > li:nth-child(4) > i:hover {
   color: #ff6700;
+  cursor:pointer;
 }
 .wx {
   position: relative;

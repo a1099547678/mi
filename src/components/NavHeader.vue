@@ -366,7 +366,7 @@ export default {
   border-top: 1px solid #e0e0e0;
   box-shadow: 0 3px 12px #d6d6d6;
   transition: all 0.5s;
-  z-index: 1;
+  z-index: 10;
 }
 .unfoldImg-list {
   display: flex;
@@ -381,7 +381,7 @@ export default {
   position: absolute;
   left: 0;
   top: 46px;
-  z-index: 1;
+  z-index: 10;
   width: 1px;
   height: 100px;
   content: "";

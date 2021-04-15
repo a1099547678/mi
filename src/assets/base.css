@@ -59,3 +59,14 @@ i {
     width: 1225px;
     margin: auto;
 }
+
+
+/* h2样式 */
+
+h2 {
+    height: 58px;
+    line-height: 58px;
+    font-weight: normal;
+    font-size: 25px;
+    color: #333333;
+}

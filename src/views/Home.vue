@@ -14,6 +14,11 @@
         components:{
             NavHeader,
             NavFooter
+        },
+        data(){
+            return{
+                
+            }
         }
     }
 </script>
