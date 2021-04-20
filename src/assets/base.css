@@ -70,3 +70,9 @@ h2 {
     font-size: 25px;
     color: #333333;
 }
+
+p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

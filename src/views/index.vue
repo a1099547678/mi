@@ -5,7 +5,11 @@
       <swiper ref="mySwiper" :options="swiperOptions" class="w">
         <swiper-slide v-for="(item, index) in SlideImg" :key="index"
           ><a :href="item.src"
-            ><img :src="item.src" alt="" class="swiper-no-swiping" /></a
+            ><img
+              :src="item.src"
+              alt=""
+              class="swiper-no-swiping"
+              style="width: 1226px; height: 460px" /></a
         ></swiper-slide>
       </swiper>
       <div class="swiper-pagination" slot="pagination"></div>
@@ -14,12 +18,12 @@
       <!-- 轮播图部分 -->
       <!-- 商品导航栏 -->
       <div class="commodity">
-        <ul class="commodity-list">
-          <li>手机&#160;电话卡<i class="iconfont"></i></li>
+        <ul class="commodity-list" @mouseenter="commodityShow">
+          <li>小米&#160;手机<i class="iconfont"></i></li>
           <li>电视&#160;盒子<i class="iconfont"></i></li>
           <li>笔记本&#160;显示器<i class="iconfont"></i></li>
           <li>家电&#160;插线板<i class="iconfont"></i></li>
-          <li>出行&#160;穿戴<i class="iconfont"></i></li>
+          <li>红米&#160;手机<i class="iconfont"></i></li>
           <li>智能&#160;路由器<i class="iconfont"></i></li>
           <li>电源&#160;配件<i class="iconfont"></i></li>
           <li>健康&#160;儿童<i class="iconfont"></i></li>
@@ -28,10 +32,10 @@
         </ul>
         <!-- 商品列表栏 -->
         <div class="commodity-site">
-          <ul v-for="(itembig, index) in SiteList" :key="index">
-            <li v-for="(item, index) in itembig" :key="index">
+          <ul v-for="(itemouter, indexouter) in SiteList" :key="indexouter">
+            <li v-for="(item, index) in itemouter" :key="index">
               <a href="javascript:;">
-                <img :src="item.src" alt="" />
+                <img :src="'http://localhost:3000' + item.img" alt="" />
                 {{ item.name }}
               </a>
             </li>
@@ -111,34 +115,37 @@
         <div class="seckill-time">
           <div class="time-down">14:00&#32;&#32;场</div>
           <i class="iconfont time-ico">&#xe673;</i>
-          <div class="time-end">距离结束还有</div>
+          <div class="time-end">本场已结束</div>
           <div class="time-exact">
-            <span>03</span>
+            <span>00</span>
             <b>:</b>
-            <span>03</span>
+            <span>00</span>
             <b>:</b>
-            <span>03</span>
+            <span>00</span>
           </div>
         </div>
         <div class="swiper2-box">
           <swiper ref="mySwiper2" :options="swiperOptions2">
-            <swiper-slide class="noSwiping"
-              ><img
-                src="http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a27cccc02ebc33e76ecf71b49a3e7d3a.png?thumb=1&w=200&h=200&f=webp&q=90"
-                alt=""
-                style="width: 50px; height: 50px"
-            /></swiper-slide>
-            <swiper-slide class="swiper-wrapper">Slide 2</swiper-slide>
-            <swiper-slide class="swiper-wrapper">Slide 3</swiper-slide>
-            <swiper-slide class="swiper-wrapper">Slide 4</swiper-slide>
-            <swiper-slide class="swiper-wrapper">Slide 5</swiper-slide>
-            <swiper-slide class="swiper-wrapper">Slide 6</swiper-slide>
-            <swiper-slide class="swiper-wrapper">Slide 7</swiper-slide>
-            <swiper-slide class="swiper-wrapper">Slide 8</swiper-slide>
-            <swiper-slide class="swiper-wrapper">Slide 9</swiper-slide>
-            <swiper-slide class="swiper-wrapper">Slide 10</swiper-slide>
-            <swiper-slide class="swiper-wrapper">Slide 11</swiper-slide>
-            <swiper-slide class="swiper-wrapper">Slide 12</swiper-slide>
+            <swiper-slide
+              class="noSwiping"
+              v-for="item in seckillList"
+              :key="item.id"
+            >
+              <a href="javascript:;" class="noSwiping-shopbox">
+                <img
+                  :src="'http://localhost:3000' + item.img"
+                  alt=""
+                  class="noSwiping-shopbox-imgssize"
+                />
+                <p class="noSwiping-shopbox-pitem1">{{ item.name }}</p>
+                <p class="noSwiping-shopbox-pitem2">{{ item.intro }}</p>
+                <p class="noSwiping-shopbox-pitem3">
+                  {{ item.price }}元&#160;&#160;<s class="color"
+                    >{{ item.worn_price }}元</s
+                  >
+                </p>
+              </a>
+            </swiper-slide>
           </swiper>
           <div class="swiper2-button-prev iconfont"></div>
           <div class="swiper2-button-next iconfont"></div>
@@ -149,7 +156,7 @@
       <div class="w banner_box">
         <a href="javascript:;">
           <img
-            src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/431e5fd6bfd1b67d096928248be18303.jpg?thumb=1&w=1349&h=132&f=webp&q=90"
+            src="http://localhost:3000/public/banner/41d16e66381cfeda7b6b39ab67678d5e.webp"
             alt=""
           />
         </a>
@@ -158,6 +165,12 @@
       <!-- 手机区 -->
       <div class="w miphone">
         <h2>手机</h2>
+        <div class="miphone-more">
+          <a href="javascript:;" class="miphone-more-atim">
+          <span class="atim-span">查看全部</span>
+          <i class="iconfont atim-ico"></i>
+        </a>
+        </div>
         <ul class="miphone-brick">
           <li class="brick-list">
             <a href="">
@@ -167,24 +180,14 @@
               />
             </a>
           </li>
-          <li class="brick-list">
+          <li class="brick-list" v-for="item in phoneList" :key="item.id">
             <a href="">
-              <img
-                src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5dc32ec73299ff79556dcd1cf0f0ac11.png?thumb=1&w=200&h=200&f=webp&q=90"
-                alt=""
-              />
-              <span>小米MIX FOLD</span>
-              <span>折叠大屏|自研究芯片</span>
-              <span>9999元起</span>
+              <img :src="'http://localhost:3000' + item.img" alt="" />
+              <span>{{ item.name }}</span>
+              <span>{{ item.intro }}</span>
+              <span>{{ item.price }}元起</span>
             </a>
           </li>
-          <li class="brick-list"><a href=""></a></li>
-          <li class="brick-list"><a href=""></a></li>
-          <li class="brick-list"><a href=""></a></li>
-          <li class="brick-list"><a href=""></a></li>
-          <li class="brick-list"><a href=""></a></li>
-          <li class="brick-list"><a href=""></a></li>
-          <li class="brick-list"><a href=""></a></li>
         </ul>
       </div>
       <!-- 手机区 -->
@@ -201,7 +204,12 @@
     </div>
     <!-- 商品展示柜 1-->
     <div>
-      <index-showcase></index-showcase>
+      <transition name="show-index-showcase">
+        <index-showcase
+          :msg="shopDataOne"
+          v-if="shopDataOne.hotList !== ''"
+        ></index-showcase>
+      </transition>
     </div>
     <!-- 商品展示柜 1-->
     <!-- banner_box 2-->
@@ -216,7 +224,10 @@
     <!-- banner_box 2-->
     <!-- 商品展示柜 2-->
     <div>
-      <index-showcase></index-showcase>
+      <index-showcase
+        :msg="shopDataTwo"
+        v-if="shopDataTwo.hotList !== ''"
+      ></index-showcase>
     </div>
     <!-- 商品展示柜 2-->
     <!-- banner_box 3-->
@@ -231,7 +242,10 @@
     <!-- banner_box 3-->
     <!-- 商品展示柜 3-->
     <div>
-      <index-showcase></index-showcase>
+      <index-showcase
+        :msg="shopDataThree"
+        v-if="shopDataThree.hotList !== ''"
+      ></index-showcase>
     </div>
     <!-- 商品展示柜 3-->
     <!-- banner_box 4-->
@@ -259,11 +273,7 @@
             v-for="(item, index) in videoList"
             :key="index"
           >
-            <img
-              src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/101b19aca4bb489bcef0f503e44ec866.jpg?thumb=1&w=296&h=180&f=webp&q=90"
-              alt=""
-              class="vd-list-picture"
-            />
+            <img :src="item.img" alt="" class="vd-list-picture" />
             <span class="iconfont vd-list-play"></span>
             <h3 class="vd-list-title">Redmi 10X系列发布会</h3>
             <p class="vd-list-desc">Redmi 10X系列发布会</p>
@@ -340,7 +350,7 @@ export default {
         },
         speed: 1500, //轮播速度
         slidesPerView: 4,
-        slidesPerGroup: 4,
+        slidesPerGroup: 3,
         spaceBetween: 20,
         noSwiping: true,
         noSwipingClass: "swiper-wrapper",
@@ -373,68 +383,142 @@ export default {
             "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/dd1230a223865a9b98f4b2cd437eea08.jpg?thumb=1&w=1226&h=460&f=webp&q=90",
         },
       ],
-      // 商品列表图片
-      SiteList: [
-        [
-          {
-            id: 0,
-            src:
-              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ac38f4abb13391b5f254cd47aebb55bb.png?thumb=1&w=40&h=40&f=webp&q=90",
-            name: "小米电视机",
-          },
-          {
-            id: 0,
-            src:
-              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ac38f4abb13391b5f254cd47aebb55bb.png?thumb=1&w=40&h=40&f=webp&q=90",
-            name: "小米电视机",
-          },
-          {
-            id: 0,
-            src:
-              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ac38f4abb13391b5f254cd47aebb55bb.png?thumb=1&w=40&h=40&f=webp&q=90",
-            name: "小米电视机",
-          },
-          {
-            id: 0,
-            src:
-              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ac38f4abb13391b5f254cd47aebb55bb.png?thumb=1&w=40&h=40&f=webp&q=90",
-            name: "小米电视机",
-          },
-          {
-            id: 0,
-            src:
-              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ac38f4abb13391b5f254cd47aebb55bb.png?thumb=1&w=40&h=40&f=webp&q=90",
-            name: "小米电视机",
-          },
-          {
-            id: 0,
-            src:
-              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ac38f4abb13391b5f254cd47aebb55bb.png?thumb=1&w=40&h=40&f=webp&q=90",
-            name: "小米电视机",
-          },
-        ],
-        [
-          {
-            id: 0,
-            src:
-              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ac38f4abb13391b5f254cd47aebb55bb.png?thumb=1&w=40&h=40&f=webp&q=90",
-            name: "小米电视机",
-          },
-        ],
-        [],
-        [],
-      ],
+      // 商品列表展示数据
+      SiteList: [],
+      // 商品列表图片全部数据
+      SiteListAll: {
+        xiaomiList: [],
+        redmiList: [],
+        tvList: [],
+        bookList: [],
+        wiringList: [],
+        redmiList: [],
+        wifiList: [],
+        partsList: [],
+        rimproductList: [],
+        headsetList: [],
+        liveboxList: [],
+      },
+      // 小米秒杀数据
+      seckillList: "",
+      // 手机区数据
+      phoneList: "",
       // 视频列表
       videoList: [
         {
+          img:
+            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/101b19aca4bb489bcef0f503e44ec866.jpg?thumb=1&w=296&h=180&f=webp&q=90",
           src:
             "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e25d81c4922fca5ebe51877717ef9b76.mp4",
         },
         {
+          img:
+            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e74c4ff741bcdfc5b28a48a43e4edc6d.jpg?thumb=1&w=266&h=162&f=webp&q=90",
+          src:
+            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/812358b69886e576c66a01f1f00affe9.mp4",
+        },
+        {
+          img:
+            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e74c4ff741bcdfc5b28a48a43e4edc6d.jpg?thumb=1&w=266&h=162&f=webp&q=90",
+          src:
+            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/812358b69886e576c66a01f1f00affe9.mp4",
+        },
+        {
+          img:
+            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e74c4ff741bcdfc5b28a48a43e4edc6d.jpg?thumb=1&w=266&h=162&f=webp&q=90",
           src:
             "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/812358b69886e576c66a01f1f00affe9.mp4",
         },
       ],
+      // 商品展示柜1数据
+      shopDataOne: {
+        classBox: "家电",
+        title: [
+          {
+            title: "热门",
+          },
+          {
+            title: "电影电视",
+          },
+        ],
+        banner: [
+          {
+            img:
+              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/116fc43816b87192be4e67cf762e8da5.jpeg?thumb=1&w=234&h=300&f=webp&q=90",
+          },
+          {
+            img:
+              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/116fc43816b87192be4e67cf762e8da5.jpeg?thumb=1&w=234&h=300&f=webp&q=90",
+          },
+        ],
+        shopEnd: {
+          hotshopEnd: "",
+          oneshopEnd: "",
+        },
+        hotList: "",
+        oneList: [],
+      },
+      // 商品展示柜2数据
+      shopDataTwo: {
+        classBox: "生活",
+        title: [
+          {
+            title: "热门",
+          },
+          {
+            title: "配件",
+          },
+        ],
+        banner: [
+          {
+            img:
+              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/116fc43816b87192be4e67cf762e8da5.jpeg?thumb=1&w=234&h=300&f=webp&q=90",
+          },
+          {
+            img:
+              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/116fc43816b87192be4e67cf762e8da5.jpeg?thumb=1&w=234&h=300&f=webp&q=90",
+          },
+        ],
+        shopEnd: {
+          hotshopEnd: "",
+          oneshopEnd: "",
+        },
+        hotList: "",
+        oneList: [],
+      },
+      // 商品展示柜3数据
+      shopDataThree: {
+        classBox: "搭配",
+        title: [
+          {
+            title: "热门",
+          },
+          {
+            title: "智能",
+          },
+          {
+            title: "路由器",
+          },
+        ],
+        banner: [
+          {
+            img:
+              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/116fc43816b87192be4e67cf762e8da5.jpeg?thumb=1&w=234&h=300&f=webp&q=90",
+          },
+          {
+            img:
+              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/116fc43816b87192be4e67cf762e8da5.jpeg?thumb=1&w=234&h=300&f=webp&q=90",
+          },
+        ],
+        shopEnd: {
+          hotshopEnd: "",
+          oneshopEnd: "",
+          twoshopEnd: "",
+        },
+        hotList: "",
+        oneList: [],
+        twoList: [],
+      },
       giveMivideo: "",
       miVideoOp: false,
     };
@@ -445,10 +529,212 @@ export default {
     // },
   },
   mounted() {
-    // console.log("Current Swiper instance object", this.swiper);
-    // this.swiper.slideTo(3, 1000, false);
+    // 获取小米手机数据
+    this.axios
+      .get("http://localhost:3000/product/xiaomi", {
+        params: {
+          begin: 0,
+          ending: 8,
+        },
+      })
+      .then((response) => {
+        // 数据传到  轮播图上的  导航栏
+        this.SiteListAll.xiaomiList = this.group(response.data.data, 6);
+        // 数据传到  小米秒杀
+        this.seckillList = response.data.data;
+        // 数据传到  手机区
+        this.phoneList = response.data.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // 获取电视数据
+    this.axios
+      .get("http://localhost:3000/product/television", {
+        params: {
+          begin: 0,
+          ending: 8,
+        },
+      })
+      .then((response) => {
+        // 数据传到  轮播图上的  导航栏
+        this.SiteListAll.tvList = this.group(response.data.data, 6);
+        // 数据传到 indexShowcase组件 的 商品栏
+        // 商品栏1的 one
+        this.shopDataOne.oneList = response.data.data.slice(0, 8);
+        this.shopDataOne.shopEnd.oneshopEnd =
+          response.data.data[response.data.data.length - 1];
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // 获取笔记本数据
+    this.axios
+      .get("http://localhost:3000/product/jotter", {
+        params: {
+          begin: 0,
+          ending: 6,
+        },
+      })
+      .then((response) => {
+        // 数据传到  轮播图上的  导航栏
+        this.SiteListAll.bookList = this.group(response.data.data, 6);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // 获取 家电 数据
+    this.axios
+      .get("http://localhost:3000/product/appliances", {
+        params: {
+          begin: 0,
+          ending: 6,
+        },
+      })
+      .then((response) => {
+        // 数据传到  轮播图上的  导航栏
+        this.SiteListAll.wiringList = this.group(response.data.data, 6);
+        // 数据传到 indexShowcase组件 的 商品栏
+        // 商品栏1的hot
+        this.shopDataOne.hotList = response.data.data.slice(0, 6);
+        this.shopDataOne.shopEnd.hotshopEnd =
+          response.data.data[response.data.data.length - 1];
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // 获取红米手机数据
+    this.axios
+      .get("http://localhost:3000/product/redmi", {
+        params: {
+          begin: 0,
+          ending: 6,
+        },
+      })
+      .then((response) => {
+        // 数据传到  轮播图上的  导航栏
+        this.SiteListAll.redmiList = this.group(response.data.data, 6);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // 获取 路由器 数据
+    this.axios
+      .get("http://localhost:3000/product/wifi", {
+        params: {
+          begin: 0,
+          ending: 6,
+        },
+      })
+      .then((response) => {
+        // 数据传到  轮播图上的  导航栏
+        this.SiteListAll.wifiList = this.group(response.data.data, 6);
+        // 商品栏3的 two
+        this.shopDataThree.twoList = response.data.data.slice(0, 7);
+        this.shopDataThree.shopEnd.twoshopEnd =
+          response.data.data[response.data.data.length - 1];
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // 获取 电源配件 数据
+    this.axios
+      .get("http://localhost:3000/product/parts", {
+        params: {
+          begin: 0,
+          ending: 6,
+        },
+      })
+      .then((response) => {
+        // 数据传到  轮播图上的  导航栏
+        this.SiteListAll.partsList = this.group(response.data.data, 5);
+        // 商品栏3的 one
+        this.shopDataThree.oneList = response.data.data.slice(0, 7);
+        this.shopDataThree.shopEnd.oneshopEnd =
+          response.data.data[response.data.data.length - 1];
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // 获取 周边产品 数据
+    this.axios
+      .get("http://localhost:3000/product/rimproduct", {
+        params: {
+          begin: 0,
+          ending: 8,
+        },
+      })
+      .then((response) => {
+        // 数据传到  轮播图上的  导航栏
+        this.SiteListAll.rimproductList = this.group(response.data.data, 6);
+        // 数据传到 indexShowcase组件 的 商品栏
+        // 商品栏2的hot
+        this.shopDataTwo.hotList = response.data.data.slice(0, 7);
+        this.shopDataTwo.shopEnd.hotshopEnd =
+          response.data.data[response.data.data.length - 1];
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // 获取 耳机音箱 数据
+    this.axios
+      .get("http://localhost:3000/product/headset", {
+        params: {
+          begin: 0,
+          ending: 8,
+        },
+      })
+      .then((response) => {
+        // 数据传到  轮播图上的  导航栏
+        this.SiteListAll.headsetList = this.group(response.data.data, 6);
+        // 商品栏3的 hot
+        this.shopDataThree.hotList = response.data.data.slice(0, 7);
+        this.shopDataThree.shopEnd.hotshopEnd =
+          response.data.data[response.data.data.length - 1];
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // 获取 生活箱包 数据
+    this.axios
+      .get("http://localhost:3000/product/livebox", {
+        params: {
+          begin: 0,
+          ending: 8,
+        },
+      })
+      .then((response) => {
+        // 数据传到  轮播图上的  导航栏
+        this.SiteListAll.liveboxList = this.group(response.data.data, 6);
+        // 商品栏2的 one
+        this.shopDataTwo.oneList = response.data.data.slice(0, 7);
+        this.shopDataTwo.shopEnd.oneshopEnd =
+          response.data.data[response.data.data.length - 1];
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
   methods: {
+    // 数组分组
+    group: function (arr, num) {
+      var basics = num;
+      var data = [];
+      if (arr.length >= basics) {
+        var g = 1;
+        for (let i = 0; i <= arr.length / basics; i++) {
+          var temp = arr.slice(basics * i, basics * g);
+          g++;
+          data.push(temp);
+          if (data[data.length - 1].length === 0) {
+            data.pop();
+          }
+        }
+        return data;
+      } else {
+        console.log("数据不够，太短了");
+      }
+    },
     showMivideo: function (src) {
       if (!this.miVideoOp) {
         this.miVideoOp = true;
@@ -457,10 +743,41 @@ export default {
     },
     stopOp: function (op) {
       op.stop();
-      var that = this
+      var that = this;
       setTimeout(function () {
-        that.miVideoOp = op.op
+        that.miVideoOp = op.op;
       }, 0);
+    },
+    commodityShow: function () {
+      var commodityList = document.querySelectorAll(".commodity-list li");
+      var that = this;
+      commodityList.forEach((item, i) => {
+        item.setAttribute("data-index", i);
+        item.onmouseenter = function () {
+          var index = this.getAttribute("data-index");
+          if (index == 0) {
+            that.SiteList = that.SiteListAll.xiaomiList;
+          } else if (index == 1) {
+            that.SiteList = that.SiteListAll.tvList;
+          } else if (index == 2) {
+            that.SiteList = that.SiteListAll.bookList;
+          } else if (index == 3) {
+            that.SiteList = that.SiteListAll.wiringList;
+          } else if (index == 4) {
+            that.SiteList = that.SiteListAll.redmiList;
+          } else if (index == 5) {
+            that.SiteList = that.SiteListAll.wifiList;
+          } else if (index == 6) {
+            that.SiteList = that.SiteListAll.partsList;
+          } else if (index == 7) {
+            that.SiteList = that.SiteListAll.rimproductList;
+          } else if (index == 8) {
+            that.SiteList = that.SiteListAll.headsetList;
+          } else {
+            that.SiteList = that.SiteListAll.liveboxList;
+          }
+        };
+      });
     },
   },
 };
@@ -477,10 +794,6 @@ export default {
 /* 轮播图 *************************************************/
 .swiper-container {
   height: 460px;
-}
-.swiper-container img {
-  width: 100%;
-  height: 100%;
 }
 .swiper-button-prev,
 .swiper-button-next {
@@ -592,9 +905,14 @@ export default {
 .commodity-site a {
   display: inline-block;
   margin: 13px 0 0 8px;
-  color: red;
+  color: #000;
+}
+.commodity-site a:hover {
+  color: #ff6700;
 }
 .commodity-site img {
+  width: 40px;
+  height: 40px;
   vertical-align: middle;
 }
 .commodity-list:hover + .commodity-site {
@@ -793,6 +1111,35 @@ export default {
 .swiper2-button-prev:hover::after {
   color: #ff6a00;
 }
+.noSwiping {
+  background: #fafafa;
+}
+.noSwiping-shopbox-imgssize {
+  display: block;
+  width: 150px;
+  height: 120px;
+  margin: 54px auto 0 auto;
+}
+.noSwiping-shopbox-pitem1 {
+  margin-top: 36px;
+  font-size: 15px;
+  color: #000;
+  text-align: center;
+}
+.noSwiping-shopbox-pitem2 {
+  color: #b0b0b0;
+  font-size: 10px;
+  text-align: center;
+}
+.noSwiping-shopbox-pitem3 {
+  margin-top: 10px;
+  color: #ff6700;
+  font-size: 15px;
+  text-align: center;
+}
+.noSwiping-shopbox-pitem3 > .color {
+  color: #b0b0b0;
+}
 /* banner_box **************************************************/
 .banner_box {
   height: 120px;
@@ -806,6 +1153,40 @@ export default {
 /* 手机区 ***********************************************************/
 .miphone {
   height: 614px;
+}
+.miphone-more{
+  position: relative;
+}
+.miphone-more-atim{
+  display: block;
+  position: absolute;
+  top: -36px;
+  right: 0;
+}
+.miphone-more-atim:hover>.atim-span{
+  color: #ff6700;
+}
+.miphone-more-atim:hover>.atim-ico::before{
+  background-color: #ff6700;
+}
+
+.miphone-more-atim>.atim-span{
+  font-size: 12px;
+  color: #000;
+  transition: all 0.3s;
+}
+
+.miphone-more-atim>.atim-ico::before {
+  content: "\e621";
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  border-radius: 8px;
+  background: #b0b0b0;
+  text-align: center;
+  vertical-align: middle;
+  color: #fff;
+  transition: all 0.3s;
 }
 .miphone-brick {
   width: 1225px;
@@ -847,9 +1228,9 @@ export default {
 }
 .brick-list > a > img {
   display: block;
-  width: 160px;
-  height: 160px;
-  margin: 15px auto 0 auto;
+  width: 200px;
+  height: 148px;
+  margin: 28px auto 0 auto;
 }
 .brick-list:hover {
   box-shadow: 0 15px 30px rgb(0 0 0 / 10%);
@@ -997,6 +1378,21 @@ export default {
   }
   100% {
     opacity: 0.6;
+  }
+}
+/* indexShowcase动画 *******/
+.show-index-showcase-enter-active {
+  animation: qqq 0.8s 1;
+}
+.show-index-showcase-leave-active {
+  animation: showMask 0.8s reverse;
+}
+@keyframes qqq {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 </style>

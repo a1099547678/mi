@@ -21,10 +21,7 @@ export default {
     
   },
   mounted(){
-    // axios.get('http://localhost:3000/product/xiaomi?begin=0&ending=5')
-    // .then(function(response){
-    //   console.log(response)
-    // })
+    
   }
 }
 </script>

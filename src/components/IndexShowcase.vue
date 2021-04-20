@@ -1,52 +1,53 @@
 <template>
   <div>
     <div class="w cabinet">
-      <h2>家电</h2>
+      <h2>{{ msg.classBox }}</h2>
       <ul class="cabinet-rbox">
-        <li class="cabinet-rbox-list">
+        <li
+          class="cabinet-rbox-list"
+          v-for="(item, index) in msg.banner"
+          :key="index"
+        >
           <a href="">
-            <img
-              src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/116fc43816b87192be4e67cf762e8da5.jpeg?thumb=1&w=234&h=300&f=webp&q=90"
-              alt=""
-              class="rbox-list-imgs"
-            />
-          </a>
-        </li>
-        <li class="cabinet-rbox-list">
-          <a href="">
-            <img
-              src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/116fc43816b87192be4e67cf762e8da5.jpeg?thumb=1&w=234&h=300&f=webp&q=90"
-              alt=""
-              class="rbox-list-imgs"
-            />
+            <img :src="item.img" alt="" class="rbox-list-imgs" />
           </a>
         </li>
       </ul>
       <ul class="cabinet-lbox">
         <ul class="cabinet-lbox-page">
-          <li class="lbox-page-list">热门</li>
-          <li class="lbox-page-list">电视影视</li>
+          <li
+            v-for="(item, index) in msg.title"
+            :class="[
+              tabnum == index ? 'lbox-page-list-hover' : '',
+              'lbox-page-list',
+            ]"
+            :key="index"
+            @mouseenter="cutTab($event, index)"
+          >
+            {{ item.title }}
+          </li>
         </ul>
-        <li class="cabinet-lbox-list" v-for="(item,index) in zd" :key="index">
+        <li
+          class="cabinet-lbox-list"
+          v-for="(item, index) in showList"
+          :key="index"
+        >
           <a href="">
             <img
-              :src=item.src
+              :src="'http://localhost:3000' + item.img"
               alt=""
               class="lbox-list-imgs"
             />
-            <p class="lbox-list-ps">{{item.title}}</p>
+            <p class="lbox-list-ps">{{ item.name }}</p>
             <p class="lbox-list-ps">全面屏设计</p>
-            <p class="lbox-list-ps">{{item.jiage}} <s>1888元</s></p>
+            <p class="lbox-list-ps">{{ item.price }}元 <s>{{item.worn_price == null ? '' : item.worn_price + '元'}}</s></p>
           </a>
         </li>
         <li class="cabinet-lbox-list">
           <a href="">
-            <p class="list-title">米家电冰箱</p>
-            <p class="list-price">279元</p>
-            <img
-              src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1612c93ad4756215774a0dbec7a81bb2.jpg?thumb=1&w=100&h=100&f=webp&q=90"
-              alt=""
-            />
+            <p class="list-title">{{ shopEnd.name }}</p>
+            <p class="list-price">{{ shopEnd.price }}元</p>
+            <img :src="'http://localhost:3000' + shopEnd.img" alt="" />
           </a>
         </li>
         <li class="cabinet-lbox-list">
@@ -67,53 +68,37 @@
 <script>
 export default {
   name: "index-showcase",
+  props: ["msg"],
   data() {
     return {
-      zd: [
-        {
-          title: "小米全面屏电视65英寸 E65X",
-          jiage: "2888",
-          src:
-            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/03a9e7e96a09d256ca1badeec186c859.jpg?thumb=1&w=200&h=200&f=webp&q=90",
-        },
-        {
-          title: "小米全面屏电视65英寸 E65X",
-          jiage: "2888",
-          src:
-            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/03a9e7e96a09d256ca1badeec186c859.jpg?thumb=1&w=200&h=200&f=webp&q=90",
-        },
-        {
-          title: "小米全面屏电视65英寸 E65X",
-          jiage: "2888",
-          src:
-            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/03a9e7e96a09d256ca1badeec186c859.jpg?thumb=1&w=200&h=200&f=webp&q=90",
-        },
-        {
-          title: "小米全面屏电视65英寸 E65X",
-          jiage: "2888",
-          src:
-            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/03a9e7e96a09d256ca1badeec186c859.jpg?thumb=1&w=200&h=200&f=webp&q=90",
-        },
-        {
-          title: "小米全面屏电视65英寸 E65X",
-          jiage: "2888",
-          src:
-            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/03a9e7e96a09d256ca1badeec186c859.jpg?thumb=1&w=200&h=200&f=webp&q=90",
-        },
-        {
-          title: "小米全面屏电视65英寸 E65X",
-          jiage: "2888",
-          src:
-            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/03a9e7e96a09d256ca1badeec186c859.jpg?thumb=1&w=200&h=200&f=webp&q=90",
-        },
-        {
-          title: "小米全面屏电视65英寸 E65X",
-          jiage: "2888",
-          src:
-            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/03a9e7e96a09d256ca1badeec186c859.jpg?thumb=1&w=200&h=200&f=webp&q=90",
-        },
-      ],
+      tabnum: 0,
+      showList: [],
+      shopEnd: "",
     };
+  },
+  created() {},
+  mounted() {
+    this.showList = this.msg.hotList;
+    if (this.msg.hotList !== "") {
+      this.shopEnd = this.msg.shopEnd.hotshopEnd;
+    }
+  },
+  watch: {},
+  methods: {
+    // tab栏切换
+    cutTab: function (event, index) {
+      this.tabnum = index;
+      if (index == 0) {
+        this.showList = this.msg.hotList;
+        this.shopEnd = this.msg.shopEnd.hotshopEnd;
+      } else if (index == 1) {
+        this.showList = this.msg.oneList;
+        this.shopEnd = this.msg.shopEnd.oneshopEnd;
+      }else if (index == 2) {
+        this.showList = this.msg.twoList;
+        this.shopEnd = this.msg.shopEnd.twoshopEnd;
+      }
+    },
   },
 };
 </script>
@@ -145,7 +130,11 @@ export default {
   cursor: pointer;
   transition: all 0.2s;
 }
-.lbox-page-list:hover {
+/* .lbox-page-list:hover {
+  border-bottom: 3px solid #ff6700;
+  color: #ff6700;
+} */
+.lbox-page-list-hover {
   border-bottom: 3px solid #ff6700;
   color: #ff6700;
 }
@@ -167,14 +156,14 @@ export default {
 .lbox-list-imgs {
   display: block;
   width: 160px;
-  height: 160px;
-  margin: 0 auto;
+  height: 110px;
+  margin: 30px auto 0 auto;
 }
 .lbox-list-ps {
   text-align: center;
 }
 .lbox-list-ps:nth-of-type(1) {
-  margin-top: 5px;
+  margin-top: 20px;
   color: #333333;
   font-size: 14px;
 }
@@ -223,6 +212,7 @@ export default {
   position: absolute;
   top: 40px;
   left: 38px;
+  width: 100px;
   color: #333333;
   font-size: 14px;
 }

@@ -363,7 +363,7 @@ export default {
   /* height: 228px; */
   height: 0;
   background: #ffffff;
-  border-top: 1px solid #e0e0e0;
+  /* border-top: 1px solid #e0e0e0; */
   box-shadow: 0 3px 12px #d6d6d6;
   transition: all 0.5s;
   z-index: 10;
