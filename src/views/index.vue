@@ -35,7 +35,7 @@
           <ul v-for="(itemouter, indexouter) in SiteList" :key="indexouter">
             <li v-for="(item, index) in itemouter" :key="index">
               <a href="javascript:;">
-                <img :src="'http://localhost:3000' + item.img" alt="" />
+                <img v-lazy="'http://www.wszxd.com' + item.img" alt="" />
                 {{ item.name }}
               </a>
             </li>
@@ -88,19 +88,19 @@
       <ul class="column-banner">
         <li>
           <img
-            src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5d4298059889417157e8492750328492.jpg?w=632&h=340"
+            v-lazy="'http://www.wszxd.com/public/banner/5d4298059889417157e8492750328492.webp'"
             alt=""
           />
         </li>
         <li>
           <img
-            src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5d4298059889417157e8492750328492.jpg?w=632&h=340"
+            v-lazy="'http://www.wszxd.com/public/banner/793913688bfaee26b755a0b0cc8575fd.webp'"
             alt=""
           />
         </li>
         <li>
           <img
-            src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5d4298059889417157e8492750328492.jpg?w=632&h=340"
+            v-lazy="'http://www.wszxd.com/public/banner/b30177d629bfbe2fb42251c1b8538f7b.webp'"
             alt=""
           />
         </li>
@@ -133,7 +133,7 @@
             >
               <a href="javascript:;" class="noSwiping-shopbox">
                 <img
-                  :src="'http://localhost:3000' + item.img"
+                  v-lazy="'http://www.wszxd.com' + item.img"
                   alt=""
                   class="noSwiping-shopbox-imgssize"
                 />
@@ -156,7 +156,7 @@
       <div class="w banner_box">
         <a href="javascript:;">
           <img
-            src="http://localhost:3000/public/banner/41d16e66381cfeda7b6b39ab67678d5e.webp"
+            v-lazy="'http://www.wszxd.com/public/banner/431e5fd6bfd1b67d096928248be18303.webp'"
             alt=""
           />
         </a>
@@ -175,14 +175,14 @@
           <li class="brick-list">
             <a href="">
               <img
-                src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c583f2edc613f1be20fa415910b13ce3.jpg?thumb=1&w=234&h=614&f=webp&q=90"
+                v-lazy="'http://www.wszxd.com/public/banner/c583f2edc613f1be20fa415910b13ce3.webp'"
                 alt=""
               />
             </a>
           </li>
           <li class="brick-list" v-for="item in phoneList" :key="item.id">
             <a href="">
-              <img :src="'http://localhost:3000' + item.img" alt="" />
+              <img v-lazy="'http://www.wszxd.com' + item.img" alt="" />
               <span>{{ item.name }}</span>
               <span>{{ item.intro }}</span>
               <span>{{ item.price }}元起</span>
@@ -195,7 +195,7 @@
       <div class="w banner_box">
         <a href="javascript:;">
           <img
-            src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/431e5fd6bfd1b67d096928248be18303.jpg?thumb=1&w=1349&h=132&f=webp&q=90"
+            v-lazy="'http://www.wszxd.com/public/banner/41d16e66381cfeda7b6b39ab67678d5e.webp'"
             alt=""
           />
         </a>
@@ -216,7 +216,7 @@
     <div class="w banner_box">
       <a href="javascript:;">
         <img
-          src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/431e5fd6bfd1b67d096928248be18303.jpg?thumb=1&w=1349&h=132&f=webp&q=90"
+          v-lazy="'http://www.wszxd.com/public/banner/59e8fc8ba9718c266882719fb4bbcedd.webp'"
           alt=""
         />
       </a>
@@ -234,7 +234,7 @@
     <div class="w banner_box">
       <a href="javascript:;">
         <img
-          src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/431e5fd6bfd1b67d096928248be18303.jpg?thumb=1&w=1349&h=132&f=webp&q=90"
+          v-lazy="'http://www.wszxd.com/public/banner/88e35cffc82cd98cd53172460067af17.webp'"
           alt=""
         />
       </a>
@@ -252,7 +252,7 @@
     <div class="w banner_box">
       <a href="javascript:;">
         <img
-          src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/431e5fd6bfd1b67d096928248be18303.jpg?thumb=1&w=1349&h=132&f=webp&q=90"
+          v-lazy="'http://www.wszxd.com/public/banner/431e5fd6bfd1b67d096928248be18303.webp'"
           alt=""
         />
       </a>
@@ -273,7 +273,7 @@
             v-for="(item, index) in videoList"
             :key="index"
           >
-            <img :src="item.img" alt="" class="vd-list-picture" />
+            <img v-lazy="item.img" alt="" class="vd-list-picture" />
             <span class="iconfont vd-list-play"></span>
             <h3 class="vd-list-title">Redmi 10X系列发布会</h3>
             <p class="vd-list-desc">Redmi 10X系列发布会</p>
@@ -407,21 +407,21 @@ export default {
       videoList: [
         {
           img:
-            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/101b19aca4bb489bcef0f503e44ec866.jpg?thumb=1&w=296&h=180&f=webp&q=90",
+            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/2fd26bb99b723337a2f8eaba84f7d5bb.jpg?thumb=1&w=296&h=180&f=webp&q=90",
           src:
             "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e25d81c4922fca5ebe51877717ef9b76.mp4",
         },
         {
           img:
-            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e74c4ff741bcdfc5b28a48a43e4edc6d.jpg?thumb=1&w=266&h=162&f=webp&q=90",
+            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/101b19aca4bb489bcef0f503e44ec866.jpg?thumb=1&w=296&h=180&f=webp&q=90",
           src:
-            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/812358b69886e576c66a01f1f00affe9.mp4",
+            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/11c70c96529b6e6938567ec1aa0910e0.mp4",
         },
         {
           img:
-            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e74c4ff741bcdfc5b28a48a43e4edc6d.jpg?thumb=1&w=266&h=162&f=webp&q=90",
+            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/96563e75833ba4563bd469dd28203b09.jpg?thumb=1&w=296&h=180&f=webp&q=90",
           src:
-            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/812358b69886e576c66a01f1f00affe9.mp4",
+            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7cdabcaa763392c86b944eaf4e68d6a3.mp4",
         },
         {
           img:
@@ -444,11 +444,11 @@ export default {
         banner: [
           {
             img:
-              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/116fc43816b87192be4e67cf762e8da5.jpeg?thumb=1&w=234&h=300&f=webp&q=90",
+              "http://www.wszxd.com/public/banner/116fc43816b87192be4e67cf762e8da5.webp",
           },
           {
             img:
-              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/116fc43816b87192be4e67cf762e8da5.jpeg?thumb=1&w=234&h=300&f=webp&q=90",
+              "http://www.wszxd.com/public/banner/dfbdabe36b2d630d57a015e6fb5eb3ea.webp",
           },
         ],
         shopEnd: {
@@ -472,11 +472,11 @@ export default {
         banner: [
           {
             img:
-              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/116fc43816b87192be4e67cf762e8da5.jpeg?thumb=1&w=234&h=300&f=webp&q=90",
+              "http://www.wszxd.com/public/banner/9f64bbd58c3f5001bdf0688894f22cb6.webp",
           },
           {
             img:
-              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/116fc43816b87192be4e67cf762e8da5.jpeg?thumb=1&w=234&h=300&f=webp&q=90",
+              "http://www.wszxd.com/public/banner/9f6c89cf21efc23799f6130224cef007.webp",
           },
         ],
         shopEnd: {
@@ -503,11 +503,11 @@ export default {
         banner: [
           {
             img:
-              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/116fc43816b87192be4e67cf762e8da5.jpeg?thumb=1&w=234&h=300&f=webp&q=90",
+              "http://www.wszxd.com/public/banner/a660ce095e8f553a9ed1515265f4e9fc.webp",
           },
           {
             img:
-              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/116fc43816b87192be4e67cf762e8da5.jpeg?thumb=1&w=234&h=300&f=webp&q=90",
+              "http://www.wszxd.com/public/banner/6874615b3c50e837ffe532eb6ea4ef1a.webp",
           },
         ],
         shopEnd: {
@@ -531,7 +531,7 @@ export default {
   mounted() {
     // 获取小米手机数据
     this.axios
-      .get("http://localhost:3000/product/xiaomi", {
+      .get("http://www.wszxd.com/product/xiaomi", {
         params: {
           begin: 0,
           ending: 8,
@@ -550,7 +550,7 @@ export default {
       });
     // 获取电视数据
     this.axios
-      .get("http://localhost:3000/product/television", {
+      .get("http://www.wszxd.com/product/television", {
         params: {
           begin: 0,
           ending: 8,
@@ -570,7 +570,7 @@ export default {
       });
     // 获取笔记本数据
     this.axios
-      .get("http://localhost:3000/product/jotter", {
+      .get("http://www.wszxd.com/product/jotter", {
         params: {
           begin: 0,
           ending: 6,
@@ -585,7 +585,7 @@ export default {
       });
     // 获取 家电 数据
     this.axios
-      .get("http://localhost:3000/product/appliances", {
+      .get("http://www.wszxd.com/product/appliances", {
         params: {
           begin: 0,
           ending: 6,
@@ -605,7 +605,7 @@ export default {
       });
     // 获取红米手机数据
     this.axios
-      .get("http://localhost:3000/product/redmi", {
+      .get("http://www.wszxd.com/product/redmi", {
         params: {
           begin: 0,
           ending: 6,
@@ -620,7 +620,7 @@ export default {
       });
     // 获取 路由器 数据
     this.axios
-      .get("http://localhost:3000/product/wifi", {
+      .get("http://www.wszxd.com/product/wifi", {
         params: {
           begin: 0,
           ending: 6,
@@ -639,7 +639,7 @@ export default {
       });
     // 获取 电源配件 数据
     this.axios
-      .get("http://localhost:3000/product/parts", {
+      .get("http://www.wszxd.com/product/parts", {
         params: {
           begin: 0,
           ending: 6,
@@ -658,7 +658,7 @@ export default {
       });
     // 获取 周边产品 数据
     this.axios
-      .get("http://localhost:3000/product/rimproduct", {
+      .get("http://www.wszxd.com/product/rimproduct", {
         params: {
           begin: 0,
           ending: 8,
@@ -678,7 +678,7 @@ export default {
       });
     // 获取 耳机音箱 数据
     this.axios
-      .get("http://localhost:3000/product/headset", {
+      .get("http://www.wszxd.com/product/headset", {
         params: {
           begin: 0,
           ending: 8,
@@ -697,7 +697,7 @@ export default {
       });
     // 获取 生活箱包 数据
     this.axios
-      .get("http://localhost:3000/product/livebox", {
+      .get("http://www.wszxd.com/product/livebox", {
         params: {
           begin: 0,
           ending: 8,

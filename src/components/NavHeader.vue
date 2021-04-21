@@ -58,7 +58,7 @@
             v-for="(item, index) in pulldata"
             :key="index"
           >
-            <img :src="'http://localhost:3000' + item.img" alt="" /><br />
+            <img v-lazy="'http://www.wszxd.com' + item.img" alt="" /><br />
             <span>{{item.name == '' ? '查看全部':item.name}}</span
             ><br />
             <b>{{item.price == null ? '智能硬件':item.price + '元起'}}</b>
@@ -157,7 +157,7 @@ export default {
     // 获取小米手机商品图
     getXmPhoneList(brand, saveDate, ending) {
       this.axios
-        .get("http://localhost:3000/product/" + brand, {
+        .get("http://www.wszxd.com/product/" + brand, {
           params: {
             begin: 0,
             ending: ending,
@@ -287,12 +287,12 @@ export default {
   top: 50%;
   width: 55px;
   height: 55px;
-  background: #ff6700 url("/imgs/mihome.webp") no-repeat -55px 0;
+  background: #ff6700 url("../../public/imgs/xiaomi.webp") no-repeat 3px -297px;
   transform: translateY(-50%);
   transition: all 0.3s;
 }
 .XmLogo-move:hover {
-  background-position-x: 0px;
+  background-position-x: -52px;
 }
 .site-list {
   position: absolute;

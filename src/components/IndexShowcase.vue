@@ -9,7 +9,7 @@
           :key="index"
         >
           <a href="">
-            <img :src="item.img" alt="" class="rbox-list-imgs" />
+            <img v-lazy="item.img" alt="" class="rbox-list-imgs" />
           </a>
         </li>
       </ul>
@@ -34,12 +34,12 @@
         >
           <a href="">
             <img
-              :src="'http://localhost:3000' + item.img"
+              v-lazy="'http://www.wszxd.com' + item.img"
               alt=""
               class="lbox-list-imgs"
             />
             <p class="lbox-list-ps">{{ item.name }}</p>
-            <p class="lbox-list-ps">全面屏设计</p>
+            <p class="lbox-list-ps">{{item.intro}}</p>
             <p class="lbox-list-ps">{{ item.price }}元 <s>{{item.worn_price == null ? '' : item.worn_price + '元'}}</s></p>
           </a>
         </li>
@@ -47,7 +47,7 @@
           <a href="">
             <p class="list-title">{{ shopEnd.name }}</p>
             <p class="list-price">{{ shopEnd.price }}元</p>
-            <img :src="'http://localhost:3000' + shopEnd.img" alt="" />
+            <img :src="'http://www.wszxd.com' + shopEnd.img" alt="" />
           </a>
         </li>
         <li class="cabinet-lbox-list">
