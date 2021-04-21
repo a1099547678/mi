@@ -34,7 +34,7 @@
         >
           <a href="">
             <img
-              v-lazy="'http://www.wszxd.com' + item.img"
+              v-lazy="'https://www.wszxd.com' + item.img"
               alt=""
               class="lbox-list-imgs"
             />
@@ -47,7 +47,7 @@
           <a href="">
             <p class="list-title">{{ shopEnd.name }}</p>
             <p class="list-price">{{ shopEnd.price }}元</p>
-            <img :src="'http://www.wszxd.com' + shopEnd.img" alt="" />
+            <img :src="'https://www.wszxd.com' + shopEnd.img" alt="" />
           </a>
         </li>
         <li class="cabinet-lbox-list">

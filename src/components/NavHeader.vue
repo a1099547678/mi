@@ -58,7 +58,7 @@
             v-for="(item, index) in pulldata"
             :key="index"
           >
-            <img v-lazy="'http://www.wszxd.com' + item.img" alt="" /><br />
+            <img v-lazy="'https://www.wszxd.com' + item.img" alt="" /><br />
             <span>{{item.name == '' ? '查看全部':item.name}}</span
             ><br />
             <b>{{item.price == null ? '智能硬件':item.price + '元起'}}</b>
@@ -157,7 +157,7 @@ export default {
     // 获取小米手机商品图
     getXmPhoneList(brand, saveDate, ending) {
       this.axios
-        .get("http://www.wszxd.com/product/" + brand, {
+        .get("https://www.wszxd.com/product/" + brand, {
           params: {
             begin: 0,
             ending: ending,

@@ -35,7 +35,7 @@
           <ul v-for="(itemouter, indexouter) in SiteList" :key="indexouter">
             <li v-for="(item, index) in itemouter" :key="index">
               <a href="javascript:;">
-                <img v-lazy="'http://www.wszxd.com' + item.img" alt="" />
+                <img v-lazy="'https://www.wszxd.com' + item.img" alt="" />
                 {{ item.name }}
               </a>
             </li>
@@ -88,19 +88,19 @@
       <ul class="column-banner">
         <li>
           <img
-            v-lazy="'http://www.wszxd.com/public/banner/5d4298059889417157e8492750328492.webp'"
+            v-lazy="'https://www.wszxd.com/public/banner/5d4298059889417157e8492750328492.webp'"
             alt=""
           />
         </li>
         <li>
           <img
-            v-lazy="'http://www.wszxd.com/public/banner/793913688bfaee26b755a0b0cc8575fd.webp'"
+            v-lazy="'https://www.wszxd.com/public/banner/793913688bfaee26b755a0b0cc8575fd.webp'"
             alt=""
           />
         </li>
         <li>
           <img
-            v-lazy="'http://www.wszxd.com/public/banner/b30177d629bfbe2fb42251c1b8538f7b.webp'"
+            v-lazy="'https://www.wszxd.com/public/banner/b30177d629bfbe2fb42251c1b8538f7b.webp'"
             alt=""
           />
         </li>
@@ -133,7 +133,7 @@
             >
               <a href="javascript:;" class="noSwiping-shopbox">
                 <img
-                  v-lazy="'http://www.wszxd.com' + item.img"
+                  v-lazy="'https://www.wszxd.com' + item.img"
                   alt=""
                   class="noSwiping-shopbox-imgssize"
                 />
@@ -156,7 +156,7 @@
       <div class="w banner_box">
         <a href="javascript:;">
           <img
-            v-lazy="'http://www.wszxd.com/public/banner/431e5fd6bfd1b67d096928248be18303.webp'"
+            v-lazy="'https://www.wszxd.com/public/banner/431e5fd6bfd1b67d096928248be18303.webp'"
             alt=""
           />
         </a>
@@ -175,14 +175,14 @@
           <li class="brick-list">
             <a href="">
               <img
-                v-lazy="'http://www.wszxd.com/public/banner/c583f2edc613f1be20fa415910b13ce3.webp'"
+                v-lazy="'https://www.wszxd.com/public/banner/c583f2edc613f1be20fa415910b13ce3.webp'"
                 alt=""
               />
             </a>
           </li>
           <li class="brick-list" v-for="item in phoneList" :key="item.id">
             <a href="">
-              <img v-lazy="'http://www.wszxd.com' + item.img" alt="" />
+              <img v-lazy="'https://www.wszxd.com' + item.img" alt="" />
               <span>{{ item.name }}</span>
               <span>{{ item.intro }}</span>
               <span>{{ item.price }}元起</span>
@@ -195,7 +195,7 @@
       <div class="w banner_box">
         <a href="javascript:;">
           <img
-            v-lazy="'http://www.wszxd.com/public/banner/41d16e66381cfeda7b6b39ab67678d5e.webp'"
+            v-lazy="'https://www.wszxd.com/public/banner/41d16e66381cfeda7b6b39ab67678d5e.webp'"
             alt=""
           />
         </a>
@@ -216,7 +216,7 @@
     <div class="w banner_box">
       <a href="javascript:;">
         <img
-          v-lazy="'http://www.wszxd.com/public/banner/59e8fc8ba9718c266882719fb4bbcedd.webp'"
+          v-lazy="'https://www.wszxd.com/public/banner/59e8fc8ba9718c266882719fb4bbcedd.webp'"
           alt=""
         />
       </a>
@@ -234,7 +234,7 @@
     <div class="w banner_box">
       <a href="javascript:;">
         <img
-          v-lazy="'http://www.wszxd.com/public/banner/88e35cffc82cd98cd53172460067af17.webp'"
+          v-lazy="'https://www.wszxd.com/public/banner/88e35cffc82cd98cd53172460067af17.webp'"
           alt=""
         />
       </a>
@@ -252,7 +252,7 @@
     <div class="w banner_box">
       <a href="javascript:;">
         <img
-          v-lazy="'http://www.wszxd.com/public/banner/431e5fd6bfd1b67d096928248be18303.webp'"
+          v-lazy="'https://www.wszxd.com/public/banner/431e5fd6bfd1b67d096928248be18303.webp'"
           alt=""
         />
       </a>
@@ -444,11 +444,11 @@ export default {
         banner: [
           {
             img:
-              "http://www.wszxd.com/public/banner/116fc43816b87192be4e67cf762e8da5.webp",
+              "https://www.wszxd.com/public/banner/116fc43816b87192be4e67cf762e8da5.webp",
           },
           {
             img:
-              "http://www.wszxd.com/public/banner/dfbdabe36b2d630d57a015e6fb5eb3ea.webp",
+              "https://www.wszxd.com/public/banner/dfbdabe36b2d630d57a015e6fb5eb3ea.webp",
           },
         ],
         shopEnd: {
@@ -472,11 +472,11 @@ export default {
         banner: [
           {
             img:
-              "http://www.wszxd.com/public/banner/9f64bbd58c3f5001bdf0688894f22cb6.webp",
+              "https://www.wszxd.com/public/banner/9f64bbd58c3f5001bdf0688894f22cb6.webp",
           },
           {
             img:
-              "http://www.wszxd.com/public/banner/9f6c89cf21efc23799f6130224cef007.webp",
+              "https://www.wszxd.com/public/banner/9f6c89cf21efc23799f6130224cef007.webp",
           },
         ],
         shopEnd: {
@@ -503,11 +503,11 @@ export default {
         banner: [
           {
             img:
-              "http://www.wszxd.com/public/banner/a660ce095e8f553a9ed1515265f4e9fc.webp",
+              "https://www.wszxd.com/public/banner/a660ce095e8f553a9ed1515265f4e9fc.webp",
           },
           {
             img:
-              "http://www.wszxd.com/public/banner/6874615b3c50e837ffe532eb6ea4ef1a.webp",
+              "https://www.wszxd.com/public/banner/6874615b3c50e837ffe532eb6ea4ef1a.webp",
           },
         ],
         shopEnd: {
@@ -531,7 +531,7 @@ export default {
   mounted() {
     // 获取小米手机数据
     this.axios
-      .get("http://www.wszxd.com/product/xiaomi", {
+      .get("https://www.wszxd.com/product/xiaomi", {
         params: {
           begin: 0,
           ending: 8,
@@ -550,7 +550,7 @@ export default {
       });
     // 获取电视数据
     this.axios
-      .get("http://www.wszxd.com/product/television", {
+      .get("https://www.wszxd.com/product/television", {
         params: {
           begin: 0,
           ending: 8,
@@ -570,7 +570,7 @@ export default {
       });
     // 获取笔记本数据
     this.axios
-      .get("http://www.wszxd.com/product/jotter", {
+      .get("https://www.wszxd.com/product/jotter", {
         params: {
           begin: 0,
           ending: 6,
@@ -585,7 +585,7 @@ export default {
       });
     // 获取 家电 数据
     this.axios
-      .get("http://www.wszxd.com/product/appliances", {
+      .get("https://www.wszxd.com/product/appliances", {
         params: {
           begin: 0,
           ending: 6,
@@ -605,7 +605,7 @@ export default {
       });
     // 获取红米手机数据
     this.axios
-      .get("http://www.wszxd.com/product/redmi", {
+      .get("https://www.wszxd.com/product/redmi", {
         params: {
           begin: 0,
           ending: 6,
@@ -620,7 +620,7 @@ export default {
       });
     // 获取 路由器 数据
     this.axios
-      .get("http://www.wszxd.com/product/wifi", {
+      .get("https://www.wszxd.com/product/wifi", {
         params: {
           begin: 0,
           ending: 6,
@@ -639,7 +639,7 @@ export default {
       });
     // 获取 电源配件 数据
     this.axios
-      .get("http://www.wszxd.com/product/parts", {
+      .get("https://www.wszxd.com/product/parts", {
         params: {
           begin: 0,
           ending: 6,
@@ -658,7 +658,7 @@ export default {
       });
     // 获取 周边产品 数据
     this.axios
-      .get("http://www.wszxd.com/product/rimproduct", {
+      .get("https://www.wszxd.com/product/rimproduct", {
         params: {
           begin: 0,
           ending: 8,
@@ -678,7 +678,7 @@ export default {
       });
     // 获取 耳机音箱 数据
     this.axios
-      .get("http://www.wszxd.com/product/headset", {
+      .get("https://www.wszxd.com/product/headset", {
         params: {
           begin: 0,
           ending: 8,
@@ -697,7 +697,7 @@ export default {
       });
     // 获取 生活箱包 数据
     this.axios
-      .get("http://www.wszxd.com/product/livebox", {
+      .get("https://www.wszxd.com/product/livebox", {
         params: {
           begin: 0,
           ending: 8,
